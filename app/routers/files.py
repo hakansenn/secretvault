@@ -56,7 +56,6 @@ def download_file(
     if not path.exists():
         raise HTTPException(status_code=404, detail="File missing on disk")
 
-    # güvenli: client'a orijinal ismi gösteriyoruz
     return FileResponse(
         path=str(path),
         media_type=obj.content_type,

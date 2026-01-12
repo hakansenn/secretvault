@@ -14,7 +14,6 @@ def http_error(request: Request, status_code: int, code: str, message: str, deta
     return JSONResponse(status_code=status_code, content=payload)
 
 async def validation_exception_handler(request: Request, exc: RequestValidationError):
-    # Pydantic/Request validation hatalarını tek formatta döndür
     details = exc.errors()
     return http_error(
         request,
